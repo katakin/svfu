@@ -30,4 +30,4 @@ gem "therubyracer", ">= 0.11.3", :group => :assets, :platform => :ruby, :require
 gem 'activerecord-reset-pk-sequence'
 gem 'cocoon'
 
-gem 'mysql2', :group => :production
+gem 'mysql', :group => :production
