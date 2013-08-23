@@ -1,3 +1,4 @@
+#encoding: utf-8
 class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json

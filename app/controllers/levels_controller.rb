@@ -1,3 +1,4 @@
+#encoding: utf-8
 class LevelsController < ApplicationController
   # GET /levels
   # GET /levels.json

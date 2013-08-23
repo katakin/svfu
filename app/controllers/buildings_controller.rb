@@ -1,3 +1,4 @@
+#encoding: utf-8
 class BuildingsController < ApplicationController
   # GET /buildings
   # GET /buildings.json

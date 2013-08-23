@@ -1,3 +1,4 @@
+#encoding: utf-8
 class PairsController < ApplicationController
   # GET /pairs
   # GET /pairs.json
