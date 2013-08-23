@@ -696,3 +696,6 @@ Schedule.create([
     {:parity => 0, :weekday_id => 6, :pair_id => 4, :room_id => 1, :group_id => 6, :teacher_id => 23, :subject_id => 24, :occupation => ''}
     ])
 puts 'Stop adding schedules'
+
+puts 'FINISHED'
+
