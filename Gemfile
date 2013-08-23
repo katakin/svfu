@@ -1,4 +1,5 @@
-source 'https://rubygems.org'
+source 'http://mirror1.prod.rhcloud.com/mirror/ruby/'
+# source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'oj'
 gem 'sqlite3', :group => [:development, :test]
