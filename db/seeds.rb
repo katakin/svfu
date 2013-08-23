@@ -19,7 +19,7 @@ user2.add_role :user
 # Faculties
 puts 'Start adding faculties'
 Faculty.delete_all
-Faculty.reset_pk_sequence
+# Faculty.reset_pk_sequence
 ADF = Faculty.create!(
     :id => 1,
     :name => 'Автодорожный факультет',
@@ -96,7 +96,7 @@ puts 'Stop adding faculties'
 puts 'Start adding levels'
 #Levels
 Level.delete_all
-Level.reset_pk_sequence
+# Level.reset_pk_sequence
 Level.create([
     {:id => 1, :name => '1'},
     {:id => 2, :name => '2'},
@@ -109,7 +109,7 @@ puts 'Stop adding levels'
 puts 'Start adding teachers'
 #Teachers
 Teacher.delete_all
-Teacher.reset_pk_sequence
+# Teacher.reset_pk_sequence
 Teacher.create([
     {:id => 1, :fio => 'Попов С. В.'},
     {:id => 2, :fio => 'Егоров В. А.'},
@@ -221,7 +221,7 @@ puts 'Stop adding teachers'
 puts 'Start adding groups'
 #Group
 Group.delete_all
-Group.reset_pk_sequence
+# Group.reset_pk_sequence
 IMI.groups.create([
     {:id => 1, :name => 'ИНФ-13', :level_id => 1},
     {:id => 2, :name => 'МО-13-1', :level_id => 1},
@@ -281,7 +281,7 @@ IMI.groups.create([
 puts 'Stop adding groups'
 puts 'Start adding pairs'
 Pair.delete_all
-Pair.reset_pk_sequence
+# Pair.reset_pk_sequence
 Pair.create([
     {:id => 1, :name => 1, :duration => '08:00 - 09:35'},
     {:id => 2, :name => 2, :duration => '09:50 - 11:25'},
@@ -293,7 +293,7 @@ Pair.create([
 puts 'Stop adding pairs'
 puts 'Start adding weekdays'
 Weekday.delete_all
-Weekday.reset_pk_sequence
+# Weekday.reset_pk_sequence
 Weekday.create([
     {:id => 1, :name => 'Понедельник'},
     {:id => 2, :name => 'Вторник'},
@@ -306,7 +306,7 @@ Weekday.create([
 puts 'Stop adding weekdays'
 puts 'Start adding subjects'
 Subject.delete_all
-Subject.reset_pk_sequence
+# Subject.reset_pk_sequence
 Subject.create([
     {:id => 1, :name => 'Математический анализ'},
     {:id => 2, :name => 'ЭВМ и программирование'},
@@ -499,7 +499,7 @@ Subject.create([
 puts 'Stop adding subjects'
 puts 'Start adding buildings'
 Building.delete_all
-Building.reset_pk_sequence
+# Building.reset_pk_sequence
 Building.create([    
     {:id => 1, :name => 'КФЕН'},
     {:id => 2, :name => 'КТФ'},
@@ -511,7 +511,7 @@ Building.create([
 puts 'Stop adding buildings'
 puts 'Start adding rooms'
 Room.delete_all
-Room.reset_pk_sequence
+# Room.reset_pk_sequence
 Room.create([
     {:name => '324', :building_id => 1},
     {:name => '326', :building_id => 1},
@@ -540,7 +540,7 @@ Room.create([
 puts 'Stop adding rooms'
 puts 'Start adding schedules'
 Schedule.delete_all
-Schedule.reset_pk_sequence
+# Schedule.reset_pk_sequence
 Schedule.create([
     {:parity => 1, :weekday_id => 1, :pair_id => 1, :room_id => 1, :group_id => 2, :teacher_id => 1, :subject_id => 1, :occupation => ''},
     {:parity => 2, :weekday_id => 1, :pair_id => 2, :room_id => 1, :group_id => 2, :teacher_id => 1, :subject_id => 1, :occupation => ''},
