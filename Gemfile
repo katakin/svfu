@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'oj'
-gem 'sqlite3'
+gem 'sqlite3', :group => [:development, :test]
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -28,4 +28,5 @@ gem "libv8", ">= 3.11.8"
 gem "therubyracer", ">= 0.11.3", :group => :assets, :platform => :ruby, :require => "v8"
 gem 'activerecord-reset-pk-sequence'
 gem 'cocoon'
-gem 'pushmeup'
+
+gem 'mysql2', :group => :production
