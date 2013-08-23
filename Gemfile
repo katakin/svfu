@@ -1,5 +1,5 @@
-source 'http://mirror1.prod.rhcloud.com/mirror/ruby/'
-# source 'https://rubygems.org'
+# source 'http://mirror1.prod.rhcloud.com/mirror/ruby/'
+source 'https://rubygems.org'
 ruby '1.9.3'
 gem 'rails', '3.2.13'
 gem 'oj'
@@ -21,7 +21,6 @@ group :test do
 end
 
 group :development do
-	gem "html2haml", ">= 1.0.1"
 	gem "quiet_assets", ">= 1.0.2"
 end
 
