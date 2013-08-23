@@ -1,13 +1,20 @@
-# -*- encoding : utf-8 -*-
-puts 'ROLES'
-YAML.load(ENV['ROLES']).each do |role|
-  Role.find_or_create_by_name({ :name => role }, :without_protection => true)
-  puts 'role: ' << role
-end
-puts 'DEFAULT USERS'
-user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
-puts 'user: ' << user.name
+#encoding: utf-8
+puts 'CREATING ROLES'
+Role.delete_all
+Role.create([
+  { :name => 'admin' }, 
+  { :name => 'user' },
+  { :name => 'guest' }
+], :without_protection => true)
+
+puts 'SETTING UP DEFAULT USER LOGIN'
+User.delete_all
+user = User.create! :name => 'First User', :email => 'user@example.com', :password => 'please123', :password_confirmation => 'please123'
+puts 'New user created: ' << user.name
+user2 = User.create! :name => 'Second User', :email => 'user2@example.com', :password => 'please123', :password_confirmation => 'please123'
+puts 'New user created: ' << user2.name
 user.add_role :admin
+user2.add_role :user
 
 # Faculties
 puts 'Start adding faculties'
