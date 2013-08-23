@@ -13,4 +13,19 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require cocoon
 //= require_tree .
+
+jQuery(function($) {
+  // for work place
+  $("#level").change(function() {
+    // make a POST call and replace the content
+    var level = $('select#level :selected').val();
+    if(level === "") level="0";
+    jQuery.get('/workspace/update_level_select/' + level, function(data){
+        $("#schedule_table").html(data);
+    })
+    return false;
+  });
+  
+})

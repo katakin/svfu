@@ -1,0 +1,27 @@
+<h1>Listing pairs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Duration</th>
+    <th>Deleted</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pairs.each do |pair| %>
+  <tr>
+    <td><%= pair.name %></td>
+    <td><%= pair.duration %></td>
+    <td><%= pair.deleted %></td>
+    <td><%= link_to 'Show', pair %></td>
+    <td><%= link_to 'Edit', edit_pair_path(pair) %></td>
+    <td><%= link_to 'Destroy', pair, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pair', new_pair_path %>

@@ -1,0 +1,7 @@
+<h1>Рабочая среда</h1>
+<br />
+<%= select_tag 'level', options_for_select(@levels.collect{ |u| [u.name, u.id] }) %>
+
+<div id="schedule_table">
+    <%= render :partial => "table", :locals => { :schedules => @schedules } %>
+</div>

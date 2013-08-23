@@ -1,0 +1,33 @@
+<table>
+  <tr>
+    <th>Parity</th>
+    <th>Occupation</th>
+    <th>Teacher</th>
+    <th>Pair</th>
+    <th>Room</th>
+    <th>Subject</th>
+    <th>Weekday</th>
+    <th>Group</th>
+    <th>Deleted</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @schedules.each do |schedule| %>
+  <tr>
+    <td><%= schedule.parity %></td>
+    <td><%= schedule.occupation %></td>
+    <td><%= schedule.teacher_id %></td>
+    <td><%= schedule.pair_id %></td>
+    <td><%= schedule.room_id %></td>
+    <td><%= schedule.subject_id %></td>
+    <td><%= schedule.weekday_id %></td>
+    <td><%= schedule.group_id %></td>
+    <td><%= schedule.deleted %></td>
+    <td><%= link_to 'Show', schedule %></td>
+    <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
+    <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

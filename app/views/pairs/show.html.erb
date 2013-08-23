@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @pair.name %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @pair.duration %>
+</p>
+
+<p>
+  <b>Deleted:</b>
+  <%= @pair.deleted %>
+</p>
+
+
+<%= link_to 'Edit', edit_pair_path(@pair) %> |
+<%= link_to 'Back', pairs_path %>
