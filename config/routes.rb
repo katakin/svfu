@@ -1,6 +1,4 @@
 Server::Application.routes.draw do
-  resources :buildings
-
 
   match 'api/getgroups' => "api#getgroups", :via => :get
   match 'api/getschedule' => "api#getschedule", :via => :get

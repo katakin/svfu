@@ -1,9 +1,11 @@
 #encoding: utf-8
 class PairsController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource :only => [:rbin, :recovery]
   # GET /pairs
   # GET /pairs.json
   def index
-    @pairs = Pair.all
+    # @pairs = Pair.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class PairsController < ApplicationController
 
   # GET /pairs/1
   def show
-    @pair = Pair.find(params[:id])
+    # @pair = Pair.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,7 +24,7 @@ class PairsController < ApplicationController
 
   # GET /pairs/new
   def new
-    @pair = Pair.new
+    # @pair = Pair.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -31,12 +33,12 @@ class PairsController < ApplicationController
 
   # GET /pairs/1/edit
   def edit
-    @pair = Pair.find(params[:id])
+    # @pair = Pair.find(params[:id])
   end
 
   # POST /pairs
   def create
-    @pair = Pair.new(params[:pair])
+    # @pair = Pair.new(params[:pair])
 
     respond_to do |format|
       if @pair.save
@@ -49,7 +51,7 @@ class PairsController < ApplicationController
 
   # PUT /pairs/1
   def update
-    @pair = Pair.find(params[:id])
+    # @pair = Pair.find(params[:id])
 
     respond_to do |format|
       if @pair.update_attributes(params[:pair])
@@ -62,7 +64,7 @@ class PairsController < ApplicationController
 
   # DELETE /pairs/1
   def destroy
-    @pair = Pair.find(params[:id])
+    # @pair = Pair.find(params[:id])
     if @pair
         @pair.deleted = true
         @pair.save

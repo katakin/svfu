@@ -6,6 +6,7 @@
     </div>
     <div class="modal-body">
       <%= f.input :role_ids, :collection => Role.all, :as => :radio_buttons, :label_method => lambda {|t| t.name.titleize}, :label => false, :item_wrapper_class => 'inline', checked: user.role_ids.first %>
+      <%= f.input :faculty_id, :collection => Faculty.all, :as => :select, checked: user.faculty %>
     </div>
     <div class="modal-footer">
       <%= f.submit "Change Role", :class => "btn" %>

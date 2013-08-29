@@ -1,9 +1,11 @@
 # -*- encoding : utf-8 -*-
 class WeekdaysController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource :only => [:rbin, :recovery]
   # GET /weekdays
   # GET /weekdays.json
   def index
-    @weekdays = Weekday.all
+    # @weekdays = Weekday.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class WeekdaysController < ApplicationController
 
   # GET /weekdays/1
   def show
-    @weekday = Weekday.find(params[:id])
+    # @weekday = Weekday.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,7 +24,7 @@ class WeekdaysController < ApplicationController
 
   # GET /weekdays/new
   def new
-    @weekday = Weekday.new
+    # @weekday = Weekday.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -31,12 +33,12 @@ class WeekdaysController < ApplicationController
 
   # GET /weekdays/1/edit
   def edit
-    @weekday = Weekday.find(params[:id])
+    # @weekday = Weekday.find(params[:id])
   end
 
   # POST /weekdays
   def create
-    @weekday = Weekday.new(params[:weekday])
+    # @weekday = Weekday.new(params[:weekday])
 
     respond_to do |format|
       if @weekday.save
@@ -49,7 +51,7 @@ class WeekdaysController < ApplicationController
 
   # PUT /weekdays/1
   def update
-    @weekday = Weekday.find(params[:id])
+    # @weekday = Weekday.find(params[:id])
 
     respond_to do |format|
       if @weekday.update_attributes(params[:weekday])
@@ -62,7 +64,7 @@ class WeekdaysController < ApplicationController
 
   # DELETE /weekdays/1
   def destroy
-    @weekday = Weekday.find(params[:id])
+    # @weekday = Weekday.find(params[:id])
     if @weekday
         @weekday.deleted = true
         @weekday.save

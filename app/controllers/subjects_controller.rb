@@ -1,9 +1,11 @@
 # -*- encoding : utf-8 -*-
 class SubjectsController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource :only => [:rbin, :recovery]
   # GET /subjects
   # GET /subjects.json
   def index
-    @subjects = Subject.all
+    # @subjects = Subject.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class SubjectsController < ApplicationController
 
   # GET /subjects/1
   def show
-    @subject = Subject.find(params[:id])
+    # @subject = Subject.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,7 +24,7 @@ class SubjectsController < ApplicationController
 
   # GET /subjects/new
   def new
-    @subject = Subject.new
+    # @subject = Subject.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -31,12 +33,12 @@ class SubjectsController < ApplicationController
 
   # GET /subjects/1/edit
   def edit
-    @subject = Subject.find(params[:id])
+    # @subject = Subject.find(params[:id])
   end
 
   # POST /subjects
   def create
-    @subject = Subject.new(params[:subject])
+    # @subject = Subject.new(params[:subject])
 
     respond_to do |format|
       if @subject.save
@@ -49,7 +51,7 @@ class SubjectsController < ApplicationController
 
   # PUT /subjects/1
   def update
-    @subject = Subject.find(params[:id])
+    # @subject = Subject.find(params[:id])
 
     respond_to do |format|
       if @subject.update_attributes(params[:subject])
@@ -62,7 +64,7 @@ class SubjectsController < ApplicationController
 
   # DELETE /subjects/1
   def destroy
-    @subject = Subject.find(params[:id])
+    # @subject = Subject.find(params[:id])
     if @subject
         @subject.deleted = true
         @subject.save

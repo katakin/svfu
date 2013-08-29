@@ -7,12 +7,24 @@
 
 <p>
   <b>Faculty:</b>
-  <%= @teacher.faculty_id %>
+  <ul>
+    <% @teacher.faculties.each do |t| %>
+      <li>
+        <%= link_to t.name, t %>
+      </li>
+    <% end %>
+  </ul>
 </p>
 
 <p>
-  <b>Subject:</b>
-  <%= @teacher.subject_id %>
+	<b>Предметы:</b>
+  <ul>
+    <% @teacher.subjects.each do |t| %>
+      <li>
+        <%= link_to t.name, t %>
+      </li>
+    <% end %>
+  </ul>
 </p>
 
 <p>

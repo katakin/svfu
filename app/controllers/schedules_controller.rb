@@ -1,9 +1,11 @@
 # -*- encoding : utf-8 -*-
 class SchedulesController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource :only => [:rbin, :recovery]
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.all
+    # @schedules = Schedule.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1
   def show
-    @schedule = Schedule.find(params[:id])
+    # @schedule = Schedule.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,7 +24,7 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/new
   def new
-    @schedule = Schedule.new
+    # @schedule = Schedule.new
     @buildings = Building.all
     @faculties = Faculty.all
 
@@ -33,12 +35,12 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
-    @schedule = Schedule.find(params[:id])
+    # @schedule = Schedule.find(params[:id])
   end
 
   # POST /schedules
   def create
-    @schedule = Schedule.new(params[:schedule])
+    # @schedule = Schedule.new(params[:schedule])
 
     respond_to do |format|
       if @schedule.save
@@ -51,7 +53,7 @@ class SchedulesController < ApplicationController
 
   # PUT /schedules/1
   def update
-    @schedule = Schedule.find(params[:id])
+    # @schedule = Schedule.find(params[:id])
 
     respond_to do |format|
       if @schedule.update_attributes(params[:schedule])
@@ -64,14 +66,14 @@ class SchedulesController < ApplicationController
 
   # DELETE /schedules/1
   def destroy
-    @schedule = Schedule.find(params[:id])
+    # @schedule = Schedule.find(params[:id])
     if @schedule
         @schedule.deleted = !@schedule.deleted
         @schedule.save
     end
 
     respond_to do |format|
-      format.html { redirect_to schedules_url }
+      format.html { redirect_to :back }
     end
   end
   

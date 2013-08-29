@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Fio</th>
+    <th>ФИО</th>
     <th>Faculty</th>
     <th>Subject</th>
     <th>Deleted</th>
@@ -14,8 +14,24 @@
 <% @teachers.each do |teacher| %>
   <tr>
     <td><%= teacher.fio %></td>
-    <td><%= teacher.faculty_id %></td>
-    <td><%= teacher.subject_id %></td>
+    <td>
+      <ul>
+        <% teacher.faculties.each do |t| %>
+          <li>
+            <%= link_to t.name, t %>
+          </li>
+        <% end %>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <% teacher.subjects.each do |t| %>
+          <li>
+            <%= link_to t.name, t %>
+          </li>
+        <% end %>
+      </ul>
+    </td>
     <td><%= teacher.deleted %></td>
     <td><%= link_to 'Show', teacher %></td>
     <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>

@@ -1,9 +1,11 @@
 #encoding: utf-8
 class LevelsController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource :only => [:rbin, :recovery]
   # GET /levels
   # GET /levels.json
   def index
-    @levels = Level.all
+    # @levels = Level.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +16,7 @@ class LevelsController < ApplicationController
   # GET /levels/1
   # GET /levels/1.json
   def show
-    @level = Level.find(params[:id])
+    # @level = Level.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,7 @@ class LevelsController < ApplicationController
   # GET /levels/new
   # GET /levels/new.json
   def new
-    @level = Level.new
+    # @level = Level.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -33,13 +35,13 @@ class LevelsController < ApplicationController
 
   # GET /levels/1/edit
   def edit
-    @level = Level.find(params[:id])
+    # @level = Level.find(params[:id])
   end
 
   # POST /levels
   # POST /levels.json
   def create
-    @level = Level.new(params[:level])
+    # @level = Level.new(params[:level])
 
     respond_to do |format|
       if @level.save
@@ -53,7 +55,7 @@ class LevelsController < ApplicationController
   # PUT /levels/1
   # PUT /levels/1.json
   def update
-    @level = Level.find(params[:id])
+    # @level = Level.find(params[:id])
 
     respond_to do |format|
       if @level.update_attributes(params[:level])
@@ -67,7 +69,7 @@ class LevelsController < ApplicationController
   # DELETE /levels/1
   # DELETE /levels/1.json
   def destroy
-    @level = Level.find(params[:id])
+    # @level = Level.find(params[:id])
     @level.destroy
 
     respond_to do |format|

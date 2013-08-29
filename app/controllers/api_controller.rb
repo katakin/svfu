@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class ApiController < ApplicationController
+	skip_before_filter :authenticate_user!
     # GET /api/getgroups.json
       def getgroups
   		@groups = Group.where("faculty_id = ? AND level_id = ?", params[:faculty], params[:level])

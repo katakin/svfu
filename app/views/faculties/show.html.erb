@@ -11,6 +11,17 @@
 </p>
 
 <p>
+	<b>Преподаватели:</b>
+  <ul>
+    <% @faculty.teachers.each do |t| %>
+      <li>
+        <%= link_to t.fio, t %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
   <b>Deleted:</b>
   <%= @faculty.deleted %>
 </p>

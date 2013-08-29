@@ -1,9 +1,11 @@
 #encoding: utf-8
 class GroupsController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource :only => [:rbin, :recovery]
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    # @groups = Group.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/1
   def show
-    @group = Group.find(params[:id])
+    # @group = Group.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,7 +24,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/new
   def new
-    @group = Group.new
+    # @group = Group.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -31,12 +33,12 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
-    @group = Group.find(params[:id])
+    # @group = Group.find(params[:id])
   end
 
   # POST /groups
   def create
-    @group = Group.new(params[:group])
+    # @group = Group.new(params[:group])
 
     respond_to do |format|
       if @group.save
@@ -49,7 +51,7 @@ class GroupsController < ApplicationController
 
   # PUT /groups/1
   def update
-    @group = Group.find(params[:id])
+    # @group = Group.find(params[:id])
 
     respond_to do |format|
       if @group.update_attributes(params[:group])
@@ -62,7 +64,7 @@ class GroupsController < ApplicationController
 
   # DELETE /groups/1
   def destroy
-    @group = Group.find(params[:id])
+    # @group = Group.find(params[:id])
     if @group
         @group.deleted = true
         @group.save

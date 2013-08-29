@@ -1,9 +1,11 @@
 # -*- encoding : utf-8 -*-
 class FacultiesController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource :only => [:rbin, :recovery]
   # GET /faculties
   # GET /faculties.json
   def index
-    @faculties = Faculty.all
+    # @faculties = Faculty.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class FacultiesController < ApplicationController
 
   # GET /faculties/1
   def show
-    @faculty = Faculty.find(params[:id])
+    # @faculty = Faculty.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,7 +24,7 @@ class FacultiesController < ApplicationController
 
   # GET /faculties/new
   def new
-    @faculty = Faculty.new
+    # @faculty = Faculty.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -31,12 +33,12 @@ class FacultiesController < ApplicationController
 
   # GET /faculties/1/edit
   def edit
-    @faculty = Faculty.find(params[:id])
+    # @faculty = Faculty.find(params[:id])
   end
 
   # POST /faculties
   def create
-    @faculty = Faculty.new(params[:faculty])
+    # @faculty = Faculty.new(params[:faculty])
 
     respond_to do |format|
       if @faculty.save
@@ -49,7 +51,7 @@ class FacultiesController < ApplicationController
 
   # PUT /faculties/1
   def update
-    @faculty = Faculty.find(params[:id])
+    # @faculty = Faculty.find(params[:id])
 
     respond_to do |format|
       if @faculty.update_attributes(params[:faculty])
@@ -62,7 +64,7 @@ class FacultiesController < ApplicationController
 
   # DELETE /faculties/1
   def destroy
-    @faculty = Faculty.find(params[:id])
+    # @faculty = Faculty.find(params[:id])
     if @faculty
         @faculty.deleted = true
         @faculty.save

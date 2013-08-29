@@ -1,9 +1,11 @@
 # -*- encoding : utf-8 -*-
 class TeachersController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource :only => [:rbin, :recovery]
   # GET /teachers
   # GET /teachers.json
   def index
-    @teachers = Teacher.all
+    # @teachers = Teacher.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class TeachersController < ApplicationController
 
   # GET /teachers/1
   def show
-    @teacher = Teacher.find(params[:id])
+    # @teacher = Teacher.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,7 +24,11 @@ class TeachersController < ApplicationController
 
   # GET /teachers/new
   def new
-    @teacher = Teacher.new
+    # @teacher = Teacher.new
+    
+    if current_user.faculty
+      @teacher.faculties << current_user.faculty
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -31,12 +37,12 @@ class TeachersController < ApplicationController
 
   # GET /teachers/1/edit
   def edit
-    @teacher = Teacher.find(params[:id])
+    # @teacher = Teacher.find(params[:id])
   end
 
   # POST /teachers
   def create
-    @teacher = Teacher.new(params[:teacher])
+    # @teacher = Teacher.new(params[:teacher])
 
     respond_to do |format|
       if @teacher.save
@@ -49,7 +55,7 @@ class TeachersController < ApplicationController
 
   # PUT /teachers/1
   def update
-    @teacher = Teacher.find(params[:id])
+    # @teacher = Teacher.find(params[:id])
 
     respond_to do |format|
       if @teacher.update_attributes(params[:teacher])
@@ -62,7 +68,7 @@ class TeachersController < ApplicationController
 
   # DELETE /teachers/1
   def destroy
-    @teacher = Teacher.find(params[:id])
+    # @teacher = Teacher.find(params[:id])
     if @teacher
         @teacher.deleted = true
         @teacher.save

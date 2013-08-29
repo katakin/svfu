@@ -3,4 +3,6 @@ class Teacher < ActiveRecord::Base
   has_many :schedules 
   has_and_belongs_to_many :faculties
   has_and_belongs_to_many :subjects
+
+  validates :fio, :presence => true, :length => { :maximum => 100 }
 end

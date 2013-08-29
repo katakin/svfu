@@ -1,9 +1,11 @@
 #encoding: utf-8
 class BuildingsController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource :only => [:rbin, :recovery]
   # GET /buildings
   # GET /buildings.json
   def index
-    @buildings = Building.all
+    # @buildings = Building.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class BuildingsController < ApplicationController
 
   # GET /buildings/1
   def show
-    @building = Building.find(params[:id])
+    # @building = Building.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,7 +24,7 @@ class BuildingsController < ApplicationController
 
   # GET /buildings/new
   def new
-    @building = Building.new
+    # @building = Building.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -31,12 +33,12 @@ class BuildingsController < ApplicationController
 
   # GET /buildings/1/edit
   def edit
-    @building = Building.find(params[:id])
+    # @building = Building.find(params[:id])
   end
 
   # POST /buildings
   def create
-    @building = Building.new(params[:building])
+    # @building = Building.new(params[:building])
 
     respond_to do |format|
       if @building.save
@@ -49,7 +51,7 @@ class BuildingsController < ApplicationController
 
   # PUT /buildings/1
   def update
-    @building = Building.find(params[:id])
+    # @building = Building.find(params[:id])
 
     respond_to do |format|
       if @building.update_attributes(params[:building])
@@ -62,7 +64,7 @@ class BuildingsController < ApplicationController
 
   # DELETE /buildings/1
   def destroy
-    @building = Building.find(params[:id])
+    # @building = Building.find(params[:id])
     if @building
         @building.deleted = true
         @building.save

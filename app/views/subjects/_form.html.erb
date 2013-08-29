@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :faculty_id %>
+    <%= f.association :teachers, label_method: :fio %>
     <%= f.input :deleted %>
   </div>
 
