@@ -36,6 +36,7 @@ class SchedulesController < ApplicationController
   # GET /schedules/1/edit
   def edit
     # @schedule = Schedule.find(params[:id])
+    session[:return_to] ||= request.referer
   end
 
   # POST /schedules
@@ -57,7 +58,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.update_attributes(params[:schedule])
-        format.html { redirect_to schedules_url, notice: 'Расписание изменено' }
+        format.html { redirect_to session.delete(:return_to) || root_path, notice: 'Расписание изменено' }
       else
         format.html { render action: "edit" }
       end

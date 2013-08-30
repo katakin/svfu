@@ -49,7 +49,12 @@ Server::Application.routes.draw do
   authenticated :user do
     root :to => 'workspace#index'
   end
-  root :to => 'workspace#index'
+  unauthenticated :user do
+    devise_scope :user do 
+      root :to => "devise/sessions#new"
+    end
+  end
+  # root :to => "devise/sessions#new"
   devise_for :users
   resources :users
 end

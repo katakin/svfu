@@ -15,6 +15,12 @@
 //= require bootstrap
 //= require_tree .
 
+$.fn.toggleText = function(t1, t2){
+  if (this.text() == t1) this.text(t2);
+  else                   this.text(t1);
+  return this;
+};
+
 jQuery(function($) {
   // for work place
   $("#level").change(function() {
@@ -27,4 +33,12 @@ jQuery(function($) {
     return false;
   });
   
+  //toggle week parity
+  $("a.toggle_pair").on('click', function(e) {
+    $(this).toggleText('Четная', 'Нечетная');
+    $('div.week1').toggle();
+    $('div.week2').toggle();
+    e.preventDefault();
+  });
+
 })

@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class WorkspaceController < ApplicationController
+  authorize_resource :class => false
   # GET /workspace
   def index
     # @levels = Level.all
