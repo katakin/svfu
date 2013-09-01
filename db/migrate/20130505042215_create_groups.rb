@@ -1,6 +1,7 @@
 class CreateGroups < ActiveRecord::Migration
   def change
     create_table :groups do |t|
+      t.string :myid
       t.string :name, :null => false
       t.references :faculty
       t.references :level
