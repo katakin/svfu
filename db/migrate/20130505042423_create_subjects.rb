@@ -6,6 +6,5 @@ class CreateSubjects < ActiveRecord::Migration
       t.boolean :deleted, :null => false, :default => false
       t.timestamps
     end
-    add_index :subjects, :teacher_id
   end
 end

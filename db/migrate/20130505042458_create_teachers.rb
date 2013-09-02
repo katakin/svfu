@@ -7,8 +7,6 @@ class CreateTeachers < ActiveRecord::Migration
       t.boolean :deleted, :null => false, :default => false   
       t.timestamps
     end
-    add_index :teachers, :faculty_id
-    add_index :teachers, :subject_id
     
     create_table :faculties_teachers do |t|
       t.references :faculty

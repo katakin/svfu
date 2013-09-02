@@ -106,14 +106,12 @@ ActiveRecord::Schema.define(:version => 20130826082058) do
   add_index "schedules", ["weekday_id"], :name => "index_schedules_on_weekday_id"
 
   create_table "subjects", :force => true do |t|
-    t.string   "name",                          :null => false
-    t.integer  "faculty_id"
-    t.boolean  "deleted",    :default => false, :null => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.string   "name",                           :null => false
+    t.integer  "teachers_id"
+    t.boolean  "deleted",     :default => false, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
-
-  add_index "subjects", ["faculty_id"], :name => "index_subjects_on_faculty_id"
 
   create_table "subjects_teachers", :force => true do |t|
     t.integer "subject_id"
@@ -131,9 +129,6 @@ ActiveRecord::Schema.define(:version => 20130826082058) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
-
-  add_index "teachers", ["faculty_id"], :name => "index_teachers_on_faculty_id"
-  add_index "teachers", ["subject_id"], :name => "index_teachers_on_subject_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
