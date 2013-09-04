@@ -2,14 +2,14 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :parity %>
-    <%= f.input :occupation %>
-    <%= f.association :teacher, label_method: :fio %>
-    <%= f.association :pair %>
+    <%= f.input :parity, collection: 0..2, include_blank: false %>
+    <%= f.input :occupation, collection: [ "Лекция", "Практика", "Лаб. работа"] %>
+    <%= f.input :teacher, collection: @teachers, label_method: :fio, value_method: :id %>
+    <%= f.association :pair, collection: 1..5, include_blank: false %>
     <%= f.association :room %>
-    <%= f.association :subject %>
-    <%= f.association :weekday %>
-    <%= f.association :group %>
+    <%= f.input :subject, collection: @subjects, label_method: :name, value_method: :id %>
+    <%= f.association :weekday, include_blank: false %>
+    <%= f.input :group, collection: @groups, label_method: :name, value_method: :id %>
   </div>
 
   <div class="form-actions">

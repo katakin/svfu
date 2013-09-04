@@ -3,7 +3,7 @@ class WorkspaceController < ApplicationController
   authorize_resource :class => false
   # GET /workspace
   def index
-    # @levels = Level.all
+     @levels = Level.all
     
     # if current_user.has_role? :admin
     #   @schedules = Schedule.all
@@ -27,7 +27,7 @@ class WorkspaceController < ApplicationController
   end
   
   def update_level_select
-    @schedules = Schedule.joins(:group).where("level_id = ?", params[:id]) unless params[:id].blank?
-    render :partial => "table", :locals => { :schedules => @schedules }
+    @groups = Group.where("level_id = ?", params[:id]) unless params[:id].blank?
+    render :partial => "table", :locals => { :groups => @groups }
   end
 end

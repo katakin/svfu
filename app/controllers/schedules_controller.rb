@@ -27,6 +27,9 @@ class SchedulesController < ApplicationController
     # @schedule = Schedule.new
     @buildings = Building.all
     @faculties = Faculty.all
+    @teachers = Teacher.all
+    @subjects = Subject.all
+    @groups = Group.all
 
     respond_to do |format|
       format.html # new.html.erb

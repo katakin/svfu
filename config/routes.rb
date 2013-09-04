@@ -44,7 +44,7 @@ Server::Application.routes.draw do
   resources :buildings
   
   match 'workspace/update_level_select/:id', :controller=>'workspace', :action => 'update_level_select'
-  match 'workspace/index' => "workspace#index", :via => :get
+  match 'workspace' => "workspace#index", :via => :get
   
   authenticated :user do
     root :to => 'workspace#index'

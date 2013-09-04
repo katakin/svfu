@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20130826082058) do
   add_index "faculties_teachers", ["teacher_id"], :name => "index_faculties_teachers_on_teacher_id"
 
   create_table "groups", :force => true do |t|
+    t.string   "myid"
     t.string   "name",                          :null => false
     t.integer  "faculty_id"
     t.integer  "level_id"

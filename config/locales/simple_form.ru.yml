@@ -1,0 +1,40 @@
+ru:
+  simple_form:
+    "yes": 'Да'
+    "no": 'Нет'
+    required:
+      text: 'Обязательное к заполнению'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Пожалуйста исправьте следующие ошибки:"
+    # Labels and hints examples
+    labels:
+      defaults:
+        password: 'Пароль'
+        name: "Имя"
+        password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
+        email: 'Электронная почта'
+      schedule:
+        new:
+            parity: 'Выбрать неделю:'
+            occupation: 'Вид предмета:'
+            teacher: 'ФИО преподавателя:'
+            pair: 'Номер пары:'
+            building: 'Здание:'
+            room: 'Кабинет:'
+            subject: 'Предмет:'
+            weekday: 'День недели:'
+            group: 'Группа:'
+    hints:
+      defaults:
+        # password: 'hint parol'
+      schedule:
+        parity: '0 - занятие не зависящее от четности недели<br/>1 - нечетная неделя<br/>2 - четная неделя'
+        occupation: 'Оставьте пустой, если предмет не входит ни в один из перечисленных видов пар'
+    placeholders:
+      defaults:
+        # password: 'placeholder parol'

@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require select2
+//= require select2_locale_ru
 //= require_tree .
 
 $.fn.toggleText = function(t1, t2){
@@ -28,7 +30,7 @@ jQuery(function($) {
     var level = $('select#level :selected').val();
     if(level === "") level="0";
     jQuery.get('/workspace/update_level_select/' + level, function(data){
-        $("#schedule_table").html(data);
+        $("#list").html(data);
     })
     return false;
   });
